@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Calendar, Star, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
       {/* Floating decorative elements */}
@@ -41,6 +48,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-salon hover:bg-salon-dark text-white px-8 py-6 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => scrollToSection('booking')}
             >
               <Calendar className="w-5 h-5 mr-2" />
               Book Your Appointment 💅
@@ -49,6 +57,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="border-salon text-salon hover:bg-salon hover:text-white px-8 py-6 text-lg rounded-full transition-all duration-300"
+              onClick={() => scrollToSection('services')}
             >
               View Our Services ✨
             </Button>
