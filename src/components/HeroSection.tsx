@@ -2,15 +2,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar, Star, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
       {/* Floating decorative elements */}
@@ -45,22 +39,24 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-salon hover:bg-salon-dark text-white px-8 py-6 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
-              onClick={() => scrollToSection('booking')}
-            >
-              <Calendar className="w-5 h-5 mr-2" />
-              Book Your Appointment 💅
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-salon text-salon hover:bg-salon hover:text-white px-8 py-6 text-lg rounded-full transition-all duration-300"
-              onClick={() => scrollToSection('services')}
-            >
-              View Our Services ✨
-            </Button>
+            <Link to="/booking">
+              <Button 
+                size="lg" 
+                className="bg-salon hover:bg-salon-dark text-white px-8 py-6 text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Book Your Appointment 💅
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-salon text-salon hover:bg-salon hover:text-white px-8 py-6 text-lg rounded-full transition-all duration-300"
+              >
+                View Our Services ✨
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
